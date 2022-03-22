@@ -18,12 +18,12 @@ Page({
         const that = this;
         const data = {
             "swiperDatas": [{
-                    "id": 1,
-                    "imgurl": "../../images/home/1.jpg"
+                    "id": 3,
+                    "imgurl": "../../images/home/3.png"
                 },
                 {
-                    "id": 2,
-                    "imgurl": "../../images/home/2.jpg"
+                    "id": 4,
+                    "imgurl": "../../images/home/4.png"
                 }
             ]
         };

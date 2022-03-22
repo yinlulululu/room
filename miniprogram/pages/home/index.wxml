@@ -1,15 +1,38 @@
 <!--pages/home/index.wxml-->
 <view class="home-page">
-	<view class="swiper-component">
-		<swiper class="swiper-content" indicator-dots="true" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-			<block wx:for-items="{{swiperDatas}}">
-				<swiper-item>
-					<image src="{{item.imgurl}}" class="slide-image" />
-				</swiper-item>
-			</block>
-		</swiper>
+	<view class="header">
+		<view class="title">
+			<text class="to_select">切换门店</text>
+			<van-icon name="arrow" />
+			<text class="total">（6家门店）</text>
+		</view>
+		<view class="container">
+			<view class="img">
+				<image class="img_item" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/room/home/1.png"></image>
+				<view class="start">开始预约
+					<van-icon name="arrow" />
+				</view>
+			</view>
+			<view class="msg">
+				<view class="name">农大新区</view>
+				<view class="time">
+					<text>营业时间</text>
+					<text>09:30 - 12:00</text>
+				</view>
+				<view class="address">
+					<view>呼和浩特市玉泉区六中前街二建小区四号楼二单元五楼东户</view>
+					<view>导航
+						<van-icon name="arrow" />
+					</view>
+				</view>
+			</view>
+		</view>
 	</view>
-	<view class="content">
+	<view class="role">
+		<view>会员守则</view>
+		<image class="role_img" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/room/home/role.png"></image>
+	</view>
+	<!-- <view class="content">
 		<view class="top">
 			<view class="top-block">
 				<view class="top-left">
@@ -53,40 +76,6 @@
 			</view>
 		</view>
 
-	</view>
-	<view class="my-photo" bindtap="navigateTo" data-url="/pages/works/index">
-		<view>
-			<image style="width: 25px; height: 20px; margin: 0 10px 0 15px " src="../../images/home/my-photo.png"></image>
-			<view>我的作品</view>
-		</view>
-		<view style="margin-right: 15px; font-size: 25rpx; color: #ccc ">立即查看
-			<van-icon name="arrow" />
-		</view>
-	</view>
-	<view class="other">
-		<view class="other-title">探索系列</view>
+	</view> -->
 
-		<view class="other-content">
-			<view class="other-block">
-				<image class="other-img" bindtap="navigateTo" data-url="/pages/explore/other_1/index" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/home/IMG_6600.jpg"></image>
-				<view class="other-msg">如何拍证件照会比较好看？</view>
-			</view>
-			<view class="other-block" bindtap="navigateTo" data-url="/pages/explore/other_2/index">
-				<image class="other-img" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/home/WechatIMG75.jpg"></image>
-				<view class="other-msg">有必要去摄影棚照专业的证件照吗？</view>
-			</view>
-
-		</view>
-		<view class="other-content">
-			<view class="other-block" bindtap="navigateTo" data-url="/pages/explore/other_3/index">
-				<image class="other-img" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/home/WechatIMG76.jpg"></image>
-				<view class="other-msg">证件照好看是怎样的体验？</view>
-			</view>
-			<view class="other-block" bindtap="navigateTo" data-url="/pages/explore/other_4/index">
-				<image class="other-img" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/home/WechatIMG74.jpg">
-				</image>
-				<view class="other-msg">拍证件照时，要求表情严肃吗？</view>
-			</view>
-		</view>
-	</view>
 </view>

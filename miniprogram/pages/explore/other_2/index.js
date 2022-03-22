@@ -1,4 +1,4 @@
-// pages/explore/other_3/index.js
+// pages/explore/other_2/index.js
 Page({
 
   /**
