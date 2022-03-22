@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/find/index",
     "pages/mine/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
@@ -33,7 +34,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Photo",
+    "navigationBarTitleText": "room",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
   },
@@ -55,13 +56,19 @@
   },
   "tabBar": {
     "color": "#2c2c2c",
-    "selectedColor": "#2c2c2c",
+    "selectedColor": "#165DFF",
     "list": [
       {
         "pagePath": "pages/home/index",
-        "text": "首页",
+        "text": "预约",
         "iconPath": "images/tabs/home.png",
         "selectedIconPath": "images/tabs/home-fil.png"
+      },
+      {
+        "pagePath": "pages/find/index",
+        "text": "发现",
+        "iconPath": "images/tabs/find.png",
+        "selectedIconPath": "images/tabs/find-fil.png"
       },
       {
         "pagePath": "pages/mine/index",
