@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   /* background: linear-gradient(to top, #2c2c2c, 60%, #C1CAD6); */
-  background: radial-gradient(circle, #2c2c2c, 60%, #C1CAD6);
+  background: linear-gradient(to bottom, #16D2AC, 60%, #165DFF);
   clip-path: ellipse(80% 60% at 50% 40%);
 
 }

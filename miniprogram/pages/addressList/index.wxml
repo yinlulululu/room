@@ -1,0 +1,36 @@
+<!--miniprogram/pages/sizeList/index.wxml-->
+<view class="top">
+  <van-tabs active="{{ active }}" bind:click="clickTab" color="#165DFF">
+    <van-tab title="农大新区" name="1"></van-tab>
+    <van-tab title="农大西区" name="2"></van-tab>
+    <van-tab title="农大东区" name="3"></van-tab>
+  </van-tabs>
+</view>
+<scroll-view class="content" scroll-y bindscrolltolower="moredata">
+  <view wx:for="{{addressList}}" wx:for-index="idx" wx:key="name" data-index="{{idx}}">
+    <view class="container">
+      <view class="img">
+        <image class="img_item" src="{{item.img_src}}"></image>
+        <view class="start">开始预约
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <view class="msg">
+        <view class="name">{{item.name}}</view>
+        <view class="time">
+          <text>营业时间</text>
+          <text>{{item.time}}</text>
+        </view>
+        <view class="address">
+          <view>{{item.address}}</view>
+          <view>导航
+            <van-icon name="arrow" />
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<!-- <view class="none" wx:if="{{!photoSizeList.length}}">
+  <image src="../searchs/images/none.png" style="width: 100%;height: 100%;"></image>
+</view> -->

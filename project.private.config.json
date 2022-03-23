@@ -13,10 +13,11 @@
     "miniprogram": {
       "list": [
         {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
+          "name": "列表",
+          "pathName": "pages/addressList/index",
+          "query": "",
+          "scene": null,
+          "launchMode": "default"
         },
         {
           "name": "我的作品",
@@ -52,8 +53,8 @@
           "name": "探索系列",
           "pathName": "pages/explore/other_1/index",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
