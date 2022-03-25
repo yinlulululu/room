@@ -11,7 +11,9 @@
     "pages/works/index",
     "pages/methods/index",
     "pages/searchs/index",
-    "pages/addressList/index"
+    "pages/addressList/index",
+    "pages/map/index",
+    "pages/order/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -35,7 +37,13 @@
     "van-dialog": "@vant/weapp/dialog/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-collapse": "@vant/weapp/collapse/index",
-    "van-collapse-item": "@vant/weapp/collapse-item/index"
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+    "van-action-sheet": "@vant/weapp/action-sheet/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index"
+
   },
   "tabBar": {
     "color": "#2c2c2c",
@@ -59,5 +67,10 @@
         "selectedIconPath": "images/tabs/mine-fil.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   }
 }

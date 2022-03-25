@@ -16,14 +16,15 @@
           "name": "列表",
           "pathName": "pages/addressList/index",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "我的作品",
-          "pathName": "pages/works/index",
+          "pathName": "pages/order/index",
           "query": "",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         },
         {
           "name": "编辑",

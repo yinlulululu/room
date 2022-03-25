@@ -18,14 +18,9 @@ Page({
         const that = this;
         const data = {
             "swiperDatas": [{
-                    "id": 3,
-                    "imgurl": "../../images/home/3.png"
-                },
-                {
-                    "id": 4,
-                    "imgurl": "../../images/home/4.png"
-                }
-            ]
+                "id": 3,
+                "imgurl": "cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/room/home/5.png"
+            }]
         };
         that.setData({
             swiperDatas: data.swiperDatas

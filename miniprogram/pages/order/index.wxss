@@ -1,0 +1,74 @@
+/* pages/order/index.wxss */
+.order {
+  margin-top: 12vh;
+}
+
+.msg {
+  margin: 20px 20px;
+  background-color: #fff;
+  height: 80px;
+  border-radius: 15px;
+  color: #2c2c2c;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.msg view {
+  line-height: 20px;
+  font-size: 14px;
+  margin: 0 20px;
+}
+
+.know {
+  margin: 20px 20px;
+  background-color: #fff;
+  height: 160px;
+  border-radius: 15px;
+  color: #2c2c2c;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.know view {
+  line-height: 20px;
+  font-size: 14px;
+  margin: 0 20px;
+}
+
+.time {
+  margin: 20px 20px;
+  background-color: #fff;
+  /* height: 80px; */
+  border-radius: 15px;
+  color: #2c2c2c;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.seat {
+  margin: 20px 20px;
+  background-color: #fff;
+  /* height: 80px; */
+  border-radius: 15px;
+  color: #2c2c2c;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.seatBtn {
+  margin: 0 20px;
+}
+
+.van-cell {
+  border-radius: 15px;
+}
+
+.btn {
+  margin: 0 20px;
+  margin-top: 60vh;
+
+}

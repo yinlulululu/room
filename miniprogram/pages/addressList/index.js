@@ -40,9 +40,16 @@ Page({
   },
 
   // 去预约
-  goNextPage(e) {
+  toOrder(e) {
     wx.navigateTo({
-      url: '/pages/preEdit/index?index=' + e.currentTarget.dataset.index + '&data=' + JSON.stringify(this.data.photoSizeList[e.currentTarget.dataset.index])
+      url: '/pages/order/index?index=' + e.currentTarget.dataset.index + '&data=' + JSON.stringify(this.data.addressList[e.currentTarget.dataset.index])
+    })
+  },
+
+  // 导航
+  toMap(e) {
+    wx.navigateTo({
+      url: '/pages/map/index?index=' + e.currentTarget.dataset.index + '&data=' + JSON.stringify(this.data.addressList[e.currentTarget.dataset.index])
     })
   },
 

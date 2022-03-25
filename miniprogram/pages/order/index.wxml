@@ -1,0 +1,44 @@
+<view class="order">
+  <van-tabs type="card" color="#165DFF" swipeable>
+    <van-tab title="预约须知">
+      <view class="msg">
+        <view>预约地点：{{name}}</view>
+        <view>营业时间：{{time}}</view>
+      </view>
+      <view class="know">
+        <view>1. 本人无发热、乏力等不适症状</view>
+        <view>2. 本人近14天未曾有国内外重点疫情地区居旅史、接触史</view>
+        <view>3. 本人目前不处于隔离中，14天内未与确诊病人有密切接触</view>
+      </view>
+    </van-tab>
+    <van-tab title="预约时段">
+      <view class="time">
+        <van-cell title="选择预约时间" value="{{ date }}" bind:click="onDisplay" style="border-radius: 15px;" />
+        <van-calendar show="{{ showTime }}" bind:close="onClose" bind:confirm="onConfirm" color="#165DFF" />
+      </view>
+      <view class="seat">
+        <van-cell title="选择预约座位" value="{{ date }}" bind:click="onDisplaySeat" style="border-radius: 15px;" />
+        <van-action-sheet show="{{ showSeat }}" title="座位选择" bind:close="onCloseSeat">
+          <view>
+            <van-grid column-num="5" border="{{ false }}">
+              <van-grid-item use-slot wx:for="{{ seats }}" wx:for-item="seats" wx:for-index="index" wx:key="sid">
+                <image wx:if=" {{seats.selected === '0'}}" style="width: 30px; height: 30px;display: {{seats.selected === '1' ? 'none' : 'block'}};" src="./images/seat2.png" data-sid="{{seats.sid}}" bindtap="handleSelect" />
+                <image wx:if="{{seats.selected === '1'}}" data-sid="{{seats.sid}}" bindtap="handleSelect" style="width: 30px; height: 30px;" src="./images/seat3.png" />
+                <view style="color: #2c2c2c;">{{index +1}}</view>
+              </van-grid-item>
+            </van-grid>
+            <view class="seatBtn">
+              <van-button type="primary" size="normal" block round color="#165DFF" style="margin:0  20px;" bindtap="onOkSeat">确定</van-button>
+            </view>
+
+
+          </view>
+        </van-action-sheet>
+      </view>
+      <view class="btn">
+        <van-button type="primary" block round color="#165DFF" bindtap="next">下一步</van-button>
+      </view>
+    </van-tab>
+  </van-tabs>
+
+</view>

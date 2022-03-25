@@ -2,7 +2,7 @@
 <view class="home-page">
 	<view class="header">
 		<view class="title" bindtap="navigateTo" data-url="/pages/addressList/index">
-			<text class="to_select">切换门店</text>
+			<text class="to_select">切换校区</text>
 			<van-icon name="arrow" />
 			<text class="total">（5家门店）</text>
 		</view>
