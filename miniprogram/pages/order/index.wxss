@@ -68,7 +68,11 @@
 }
 
 .btn {
-  margin: 0 20px;
-  margin-top: 60vh;
-
+  /* margin: 0 20px; */
+  /* margin-top: 40vh; */
+  width: 90vw;
+  position: fixed;
+  bottom: 30px;
+  right: 50%;
+  transform: translateX(50%);
 }

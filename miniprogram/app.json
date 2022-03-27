@@ -44,6 +44,7 @@
     "van-grid": "@vant/weapp/grid/index",
     "van-grid-item": "@vant/weapp/grid-item/index"
 
+
   },
   "tabBar": {
     "color": "#2c2c2c",

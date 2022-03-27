@@ -15,6 +15,8 @@ Page({
     _id: '',
     click: true,
     sids: [],
+    username: '',
+    phone: ''
   },
 
   // 展示座位
@@ -23,26 +25,24 @@ Page({
     const _this = this
     for (let i = 0; i < _this.data.seats.length; i++) {
       if (e.currentTarget.dataset.sid == _this.data.seats[i].sid) {
-        console.log(_this.data.seats[i].selected)
         let item = "seats[" + i + "].selected";
-        console.log(item)
-        const {
+        let {
           sids
         } = _this.data;
-        sids.push(e.currentTarget.dataset.sid)
         if (_this.data.seats[i].selected === '0') {
+          sids.push(e.currentTarget.dataset.sid)
           _this.setData({
             [item]: '1',
             sids: sids
 
           })
         } else {
+          sids = sids.filter((x) => x !== e.currentTarget.dataset.sid)
           _this.setData({
-            [item]: '0'
+            [item]: '0',
+            sids: sids
           })
         }
-
-        console.log(_this.data.seats[i].selected)
       }
     }
 
@@ -71,13 +71,19 @@ Page({
 
   // 确定座位
   onOkSeat() {
-    console.log(this.data.sids)
+    // 过滤选择的sid
     if (this.data.sids.length !== 1) {
       wx.showToast({
         title: '只能预约一位',
         icon: 'error'
       })
+    } else {
+      this.setData({
+        sid: this.data.sids[0],
+        showSeat: false
+      });
     }
+
   },
 
   // 关闭日历
@@ -98,13 +104,14 @@ Page({
   },
 
   next() {
-    if (!this.data.date) {
+
+    if (!this.data.date || !this.data.sid || !this.data.username || !this.data.phone) {
       wx.showToast({
-        title: '请选择预约时间',
+        title: '请完善预约信息',
         icon: 'error'
       })
     } else {
-      console.log(this.data.date)
+      console.log(this.data.username, this.data.phone, this.data.date, this.data.sid)
     }
   },
 

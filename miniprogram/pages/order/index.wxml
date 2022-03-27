@@ -11,13 +11,20 @@
         <view>3. 本人目前不处于隔离中，14天内未与确诊病人有密切接触</view>
       </view>
     </van-tab>
-    <van-tab title="预约时段">
+    <van-tab title="预约信息">
       <view class="time">
-        <van-cell title="选择预约时间" value="{{ date }}" bind:click="onDisplay" style="border-radius: 15px;" />
+        <van-field style="color: #2c2c2c;" left-icon="user-o" label="请填写用户名" model:value="{{ username }}" input-align="right" required border="{{ false }}" />
+      </view>
+      <view class="time">
+        <van-field style="color: #2c2c2c;" left-icon="phone-o" value="{{ phone }}" input-align="right" model:value="{{ phone }}" required label="请填写手机号" border="{{ false }}" />
+      </view>
+
+      <view class="time">
+        <van-cell style="color: #2c2c2c;" icon="calendar-o" title="选择预约时间" value="{{ date }}" bind:click="onDisplay" style="border-radius: 15px;" required />
         <van-calendar show="{{ showTime }}" bind:close="onClose" bind:confirm="onConfirm" color="#165DFF" />
       </view>
-      <view class="seat">
-        <van-cell title="选择预约座位" value="{{ date }}" bind:click="onDisplaySeat" style="border-radius: 15px;" />
+      <view class="seat" style="color: #2c2c2c;">
+        <van-cell style="color: #2c2c2c;" icon="location-o" title="选择预约座位" value="{{ sid }}" required bind:click="onDisplaySeat" style="border-radius: 15px;" />
         <van-action-sheet show="{{ showSeat }}" title="座位选择" bind:close="onCloseSeat">
           <view>
             <van-grid column-num="5" border="{{ false }}">
@@ -36,7 +43,7 @@
         </van-action-sheet>
       </view>
       <view class="btn">
-        <van-button type="primary" block round color="#165DFF" bindtap="next">下一步</van-button>
+        <van-button type="primary" block round color="#165DFF" bindtap="next">提交</van-button>
       </view>
     </van-tab>
   </van-tabs>
