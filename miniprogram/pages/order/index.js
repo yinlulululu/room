@@ -5,18 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: '',
-    time: '',
-    date: '',
+    name: '', // 自习室名称
+    time: '', // 营业时间
+    date: '', // 预约时间
+    address: '', // 地址
+    latitude: '',
+    longitude: '',
+    img_src: '',
     showTime: false,
     showSeat: false,
     selected: false,
-    seats: [],
-    _id: '',
+    seats: [], // 座位列表
+    _id: '', // 自习室id
     click: true,
     sids: [],
-    username: '',
-    phone: ''
+    sid: '', // 座位id
+    username: '', // 用户名
+    phone: '' // 电话号码
   },
 
   // 展示座位
@@ -103,14 +108,65 @@ Page({
     });
   },
 
+  // 提交预约信息
   next() {
-
     if (!this.data.date || !this.data.sid || !this.data.username || !this.data.phone) {
       wx.showToast({
         title: '请完善预约信息',
         icon: 'error'
       })
     } else {
+      const {
+        username,
+        phone,
+        sid,
+        date,
+        _id,
+        time,
+        img_src,
+        longitude,
+        latitude,
+        address,
+        name
+      } = this.data
+      wx.cloud.callFunction({
+        name: 'addOrder',
+        data: {
+          _openid: getApp().globalData.openid,
+          order_time: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
+          username,
+          phone,
+          sid,
+          date,
+          address_id: _id,
+          time,
+          img_src,
+          longitude,
+          latitude,
+          address,
+          name
+        },
+        success: res => {
+          wx.showToast({
+            title: '预约成功',
+            icon: 'success'
+          })
+          const {
+            orderid
+          } = res.result
+          wx.navigateTo({
+            url: '/pages/orderDetail/index?orderId=' + orderid
+          })
+        },
+        fail(err) {
+          console.log(err)
+          wx.showToast({
+            title: '提交失败，请重试',
+            icon: 'none'
+          })
+        }
+      })
+
       console.log(this.data.username, this.data.phone, this.data.date, this.data.sid)
     }
   },
@@ -143,12 +199,20 @@ Page({
     const {
       _id,
       name,
-      time
+      time,
+      address,
+      latitude,
+      longitude,
+      img_src
     } = detail
     this.setData({
       _id,
       name,
-      time
+      time,
+      address,
+      latitude,
+      longitude,
+      img_src
     })
     this.getSeatsList()
   },

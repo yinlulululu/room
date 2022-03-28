@@ -1,0 +1,43 @@
+<!--pages/orderDetail/index.wxml-->
+
+<view class="detail">
+  <view class="title">
+    <!-- <view class="time">2022年12月12日</view> -->
+
+    <view class="container_m">
+      <view class="img">
+        <image class="img_item" src="{{detail.img_src}}"></image>
+      </view>
+      <view class=" msg">
+        <view class="name_order">{{detail.name}}</view>
+        <view class="time">
+          <text>预约时间</text>
+          <text>{{detail.date}}</text>
+        </view>
+        <view class="address">
+          <view>{{detail.address}}</view>
+          <view bindtap="toMap">导航
+            <van-icon name="arrow" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btns">
+      <van-button icon="edit" size="small" type="primary" hairline plain color="#165DFF">编辑</van-button>
+      <van-button icon="warning-o" size="small" type="primary" hairline plain color="#165DFF">取消预约</van-button>
+      <van-button size="small" icon="underway-o" color="#165DFF" type="info">
+        添加到日历
+      </van-button>
+    </view>
+  </view>
+  <view class="container">
+    <view class="qr_code">预约码</view>
+  </view>
+  <view class="bottom">
+    <van-cell title="订单ID" value="{{detail._id}}" />
+    <van-cell title="用户名" value="{{detail.username}}" />
+    <van-cell title="座位号" value="{{detail.sid}}" />
+    <van-cell title-width="80px" title="提交时间" value="{{detail.order_time}}" />
+    <van-cell title="联系电话" value="{{detail.phone}}" />
+  </view>
+</view>

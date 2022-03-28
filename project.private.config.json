@@ -20,8 +20,8 @@
           "scene": null
         },
         {
-          "name": "我的作品",
-          "pathName": "pages/order/index",
+          "name": "订单详情",
+          "pathName": "pages/orderDetail/index",
           "query": "",
           "scene": null,
           "launchMode": "default"
