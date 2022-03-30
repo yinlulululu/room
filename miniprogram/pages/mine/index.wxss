@@ -39,12 +39,25 @@
   position: relative;
   top: -60px;
   border-radius: 15px;
-  padding: 20px 0;
+  padding: 10px 0;
+}
+
+.container_bot {
+  background-color: #fff;
+  margin: 0 20px 0 20px;
+  position: relative;
+  top: -40px;
+  border-radius: 15px;
+  padding: 10px 0;
 }
 
 .van-hairline--top-bottom:after {
   border-width: 0 !important;
   border-top-width: 0 !important;
+}
+
+.container .van-cell:last-child::after {
+  border: none !important;
 }
 
 .message-btn {
