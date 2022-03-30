@@ -1,49 +1,58 @@
-// pages/orderDetail/index.js
+// pages/myOrder/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    detail: {}
+    myOrderList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.orderId)
+    this.getMyOrderList()
+  },
+
+  //获取数据
+  getMyOrderList() {
+    wx.showLoading({
+      title: '加载中...',
+    })
     const db = wx.cloud.database()
-    db.collection('order_list').doc(options.orderId).get().then(res => {
-      // res.data 包含该记录的数据
-      console.log(res)
-      this.setData({
-        detail: res.data
+    db.collection('order_list').where({
+        _openid: getApp().globalData.openid
       })
-    })
-
+      .get({
+        success: res => {
+          console.log(res);
+          wx.hideLoading()
+          this.setData({
+            myOrderList: res.data,
+          });
+        }
+      })
   },
 
-  // 导航
-  toMap() {
+  // 去预约详情
+  toDetail(e) {
     wx.navigateTo({
-      url: '/pages/map/index?data=' + JSON.stringify(this.data.detail)
+      url: '/pages/orderDetail/index?orderId=' + e.currentTarget.dataset.id
     })
   },
 
-  // 编辑
-  edit() {
-    console.log(this.data.detail)
-    wx.navigateTo({
-      url: '/pages/order/index?oid=1&data=' + JSON.stringify(this.data.detail)
-    })
+  // 编辑活动
+  edit(e) {
+    console.log(e.currentTarget.dataset.id)
   },
 
-  // 取消预约
-  cancel() {
-    console.log(this.data.detail)
+  // 删除活动
+  remove(e) {
+    console.log(e.currentTarget.dataset.id)
 
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

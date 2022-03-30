@@ -23,8 +23,8 @@
           "name": "订单详情",
           "pathName": "pages/orderDetail/index",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "编辑",
@@ -34,15 +34,17 @@
         },
         {
           "name": "自定义",
-          "pathName": "pages/custom/index",
+          "pathName": "pages/find/index",
           "query": "",
+          "launchMode": "default",
           "scene": null
         },
         {
-          "name": "搜索",
-          "pathName": "pages/searchs/index",
+          "name": "我的订单",
+          "pathName": "pages/myOrder/index",
           "query": "",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         },
         {
           "name": "我的",

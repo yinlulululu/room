@@ -1,2 +1,14 @@
 <!--pages/find/index.wxml-->
-<text>pages/find/index.wxml</text>
+<view class="find">
+  <van-tabs type="card" color="#165DFF" swipeable>
+    <van-tab title="预约日历">
+
+    </van-tab>
+    <van-tab title="学习报告">
+
+    </van-tab>
+    <van-tab title="排行榜">
+
+    </van-tab>
+  </van-tabs>
+</view>

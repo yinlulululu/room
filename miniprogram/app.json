@@ -14,7 +14,8 @@
     "pages/addressList/index",
     "pages/map/index",
     "pages/order/index",
-    "pages/orderDetail/index"
+    "pages/orderDetail/index",
+    "pages/myOrder/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -43,13 +44,14 @@
     "van-calendar": "@vant/weapp/calendar/index",
     "van-action-sheet": "@vant/weapp/action-sheet/index",
     "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-card": "@vant/weapp/card/index"
+
   },
   "tabBar": {
     "color": "#2c2c2c",
     "selectedColor": "#165DFF",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/index",
         "text": "预约",
         "iconPath": "images/tabs/home.png",

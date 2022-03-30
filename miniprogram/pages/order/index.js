@@ -21,7 +21,8 @@ Page({
     sids: [],
     sid: '', // 座位id
     username: '', // 用户名
-    phone: '' // 电话号码
+    phone: '', // 电话号码
+    active: '1'
   },
 
   // 展示座位
@@ -129,6 +130,7 @@ Page({
         address,
         name
       } = this.data
+
       wx.cloud.callFunction({
         name: 'addOrder',
         data: {
@@ -177,6 +179,7 @@ Page({
       title: '加载中...',
     })
     const db = wx.cloud.database()
+    console.log(this.data._id)
     db.collection('address_list').where({
         _id: this.data._id,
       })
@@ -195,6 +198,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    console.log(options)
+
     const detail = await JSON.parse(decodeURIComponent(options.data))
     const {
       _id,
@@ -205,6 +210,7 @@ Page({
       longitude,
       img_src
     } = detail
+    console.log(detail)
     this.setData({
       _id,
       name,
@@ -214,7 +220,18 @@ Page({
       longitude,
       img_src
     })
-    this.getSeatsList()
+
+    await this.getSeatsList()
+
+    if (options.oid === '1') {
+      this.setData({
+        active: '2',
+        username: detail.username,
+        phone: detail.phone,
+        date: detail.date,
+        sid: detail.sid
+      })
+    }
   },
 
   /**

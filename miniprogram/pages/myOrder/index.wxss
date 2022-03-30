@@ -1,0 +1,57 @@
+/* pages/myOrder/index.wxss */
+.my_order {
+  margin-top: 12vh;
+
+}
+
+.list {
+  margin: 0 20px;
+  border-radius: 15px;
+}
+
+.list_item {
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  width: 110px;
+  height: 80px;
+  margin-left: 10px;
+
+}
+
+.msg {
+  margin: 10px 0 10px 10px;
+  height: 80px;
+  color: #2c2c2c;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.name {
+  font-size: 16px;
+}
+
+.time {
+  font-size: 13px;
+  color: #ccc;
+}
+
+
+
+.btns {
+  /* float: right; */
+}
+
+
+
+image {
+  /* margin-left: 10px; */
+}

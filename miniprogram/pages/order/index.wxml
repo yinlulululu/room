@@ -1,6 +1,6 @@
 <view class="order">
-  <van-tabs type="card" color="#165DFF" swipeable>
-    <van-tab title="预约须知">
+  <van-tabs type="card" color="#165DFF" swipeable active="{{active}}">
+    <van-tab title="预约须知" name="1">
       <view class="msg">
         <view>预约地点：{{name}}</view>
         <view>营业时间：{{time}}</view>
@@ -11,7 +11,7 @@
         <view>3. 本人目前不处于隔离中，14天内未与确诊病人有密切接触</view>
       </view>
     </van-tab>
-    <van-tab title="预约信息">
+    <van-tab title="预约信息" name='2'>
       <view class="time">
         <van-field style="color: #2c2c2c;" left-icon="user-o" label="请填写用户名" model:value="{{ username }}" input-align="right" required border="{{ false }}" />
       </view>

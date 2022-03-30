@@ -1,0 +1,28 @@
+<!--pages/myOrder/index.wxml-->
+<view class="my_order">
+  <view class="list">
+    <view wx:for="{{ myOrderList }}" wx:for-item="order" wx:for-index="index" wx:key="_id" class="list_item">
+      <view class="img" data-id="{{order._id}}" bindtap="toDetail">
+        <image src="{{order.img_src}}" style="width: 100%;height: 100%;"></image>
+      </view>
+      <view class="msg" data-id="{{order._id}}" bindtap="toDetail">
+        <view class="name" data-id="{{order._id}}" bindtap="toDetail">{{order.name}}</view>
+        <view class="time">{{order.date}}</view>
+        <view class="time">{{order.address}}</view>
+
+        <!-- <view class="btns">
+          <van-button size="mini" plain hairline color="#165DFF" style="margin-right:10px" data-id="{{order._id}}" bindtap="edit">编辑</van-button>
+          <van-button size="mini" color="#165DFF" data-id="{{order._id}}" bindtap="remove">删除</van-button>
+        </view> -->
+
+      </view>
+      <!-- <van-card num="2" tag="标签" desc="{{order.address}}" title="{{order.name}}-{{order.date}}" thumb="{{ order.img_src }}">
+        <view slot="footer">
+          <van-button size="mini">按钮</van-button>
+          <van-button size="mini">按钮</van-button>
+        </view>
+      </van-card> -->
+    </view>
+
+  </view>
+</view>

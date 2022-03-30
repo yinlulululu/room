@@ -16,6 +16,7 @@
   <view class="container">
 
     <van-collapse accordion value="{{ activeNames }}" bind:change="onChange" style="width: 100%;">
+      <van-cell icon='orders-o' is-link title="我的预约" link-type="navigateTo" url="/pages/myOrder/index" />
       <van-collapse-item title="联系作者" name="1" icon="service-o" style="width:100%;">
         <image src="./images/mine.jpeg" show-menu-by-longpress="true" style="width: 260px;height: 260px;margin-left: 50%;transform: translateX(-50%);"></image>
       </van-collapse-item>
