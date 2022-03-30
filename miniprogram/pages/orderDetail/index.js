@@ -41,7 +41,32 @@ Page({
 
   // 取消预约
   cancel() {
-    console.log(this.data.detail)
+    wx.cloud.callFunction({
+      name: 'deleteOrder',
+      data: {
+        orderid: this.data.detail._id
+      },
+      success: res => {
+        console.log(res)
+        wx.showToast({
+          title: '删除成功',
+          icon: 'success'
+        })
+        wx.navigateTo({
+          url: '/pages/myOrder/index'
+        })
+      },
+      fail(err) {
+        console.log(err)
+        wx.showToast({
+          title: '提交失败，请重试',
+          icon: 'none'
+        })
+      }
+    })
+
+
+
 
   },
 

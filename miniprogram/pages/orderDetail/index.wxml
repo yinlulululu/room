@@ -24,7 +24,7 @@
     </view>
     <view class="btns">
       <van-button icon="edit" size="small" type="primary" hairline plain color="#165DFF" bindtap="edit">编辑</van-button>
-      <van-button icon="warning-o" size="small" type="primary" hairline plain color="#165DFF" bindtap="cancel">取消预约</van-button>
+      <van-button icon="warning-o" size="small" type="primary" hairline plain color="#165DFF" bindtap="cancel">取消</van-button>
       <van-button size="small" icon="underway-o" color="#165DFF" type="info">
         添加到日历
       </van-button>

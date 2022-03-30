@@ -22,7 +22,9 @@ Page({
     sid: '', // 座位id
     username: '', // 用户名
     phone: '', // 电话号码
-    active: '1'
+    active: '1',
+    oid: '', // 编辑or新增
+    orderid: '' // 订单id
   },
 
   // 展示座位
@@ -128,11 +130,13 @@ Page({
         longitude,
         latitude,
         address,
-        name
+        name,
+        orderid
       } = this.data
 
+      console.log(this.data)
       wx.cloud.callFunction({
-        name: 'addOrder',
+        name: this.data.oid === '1' ? 'updateOrder' : 'addOrder',
         data: {
           _openid: getApp().globalData.openid,
           order_time: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}`,
@@ -146,9 +150,11 @@ Page({
           longitude,
           latitude,
           address,
-          name
+          name,
+          orderid
         },
         success: res => {
+          console.log(res)
           wx.showToast({
             title: '预约成功',
             icon: 'success'
@@ -168,8 +174,8 @@ Page({
           })
         }
       })
+      // }
 
-      console.log(this.data.username, this.data.phone, this.data.date, this.data.sid)
     }
   },
 
@@ -208,30 +214,45 @@ Page({
       address,
       latitude,
       longitude,
-      img_src
+      img_src,
+      address_id
     } = detail
     console.log(detail)
-    this.setData({
-      _id,
-      name,
-      time,
-      address,
-      latitude,
-      longitude,
-      img_src
-    })
-
-    await this.getSeatsList()
-
     if (options.oid === '1') {
+      // 编辑
       this.setData({
+        _id: address_id,
+        name,
+        time,
+        address,
+        latitude,
+        longitude,
+        img_src,
         active: '2',
         username: detail.username,
         phone: detail.phone,
         date: detail.date,
-        sid: detail.sid
+        sid: detail.sid,
+        oid: '1',
+        orderid: detail._id
+      })
+    } else {
+      // 新增
+      this.setData({
+        _id,
+        name,
+        time,
+        address,
+        latitude,
+        longitude,
+        img_src
       })
     }
+
+
+    await this.getSeatsList()
+
+
   },
 
   /**
