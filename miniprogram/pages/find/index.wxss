@@ -1,4 +1,25 @@
 /* pages/find/index.wxss */
 .find {
-  margin-top: 12vh;
+  background-color: #fff;
+  padding-top: 12vh;
+}
+
+.van-tabs__wrap {
+  width: 100%;
+  z-index: 999;
+  position: fixed;
+}
+
+.order_day {
+  color: #fff;
+  background-color: #165DFF;
+  border-radius: 5px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.van-calendar__bottom-info {
+  font-size: 9px !important;
 }

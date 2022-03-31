@@ -1,4 +1,6 @@
 // pages/orderDetail/index.js
+import QRCode from '../../utils/qrcode'
+
 Page({
 
   /**
@@ -11,15 +13,27 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options.orderId)
+  onLoad: async function (options) {
     const db = wx.cloud.database()
-    db.collection('order_list').doc(options.orderId).get().then(res => {
+    await db.collection('order_list').doc(options.orderId).get().then(res => {
       // res.data 包含该记录的数据
       console.log(res)
       this.setData({
         detail: res.data
       })
+    })
+    const newcode = new QRCode('myQrcode', {
+      text: JSON.stringify(this.data.detail),
+      width: 200,
+      height: 200,
+      // colorDark: "#ffffff",
+      // colorLight: "white",
+      // padding: 12, // 生成二维码四周自动留边宽度，不传入默认为0
+      correctLevel: QRCode.CorrectLevel.Q, // 二维码可辨识度
+      callback: (res) => {
+        console.log(res.path)
+        // 接下来就可以直接调用微信小程序的api保存到本地或者将这张二维码直接画在海报上面去，看各自需求
+      }
     })
 
   },
@@ -42,14 +56,14 @@ Page({
   // 取消预约
   cancel() {
     wx.cloud.callFunction({
-      name: 'deleteOrder',
+      name: 'cancelOrder',
       data: {
         orderid: this.data.detail._id
       },
       success: res => {
         console.log(res)
         wx.showToast({
-          title: '删除成功',
+          title: '取消成功',
           icon: 'success'
         })
         wx.navigateTo({
@@ -64,11 +78,37 @@ Page({
         })
       }
     })
-
-
-
-
   },
+
+  // 添加到日历
+  addCalender() {
+    console.log(this.data.detail.date)
+    const {
+      name,
+      date,
+      address
+    } = this.data.detail
+    const dateStr = date.replace(/\月|日|年/g, '/')
+    const _date = dateStr.substr(0, dateStr.length - 1)
+
+    wx.addPhoneCalendar({
+      title: name,
+      startTime: new Date(_date).getTime(),
+      location: address,
+      allDay: true,
+      alarm: true,
+      success: (res) => {
+        console.log(res)
+      },
+      fail: (reject) => {
+        wx.showToast({
+          title: reject,
+          icon: 'error'
+        })
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -95,7 +135,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    newcode = null
   },
 
   /**

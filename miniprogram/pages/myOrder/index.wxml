@@ -16,12 +16,10 @@
         </view> -->
 
       </view>
-      <!-- <van-card num="2" tag="标签" desc="{{order.address}}" title="{{order.name}}-{{order.date}}" thumb="{{ order.img_src }}">
-        <view slot="footer">
-          <van-button size="mini">按钮</van-button>
-          <van-button size="mini">按钮</van-button>
-        </view>
-      </van-card> -->
+
+      <!-- <van-tag wx:if=new Date({{order.date}}.replace(/\月|日|年/g, '/' ).substr(0, {{order.date}}.replace(/\月|日|年/g, '/' ).length - 1)).getTime() < new Date().getTime()" class="ta" color="#165DFF" plain>已失效</van-tag> -->
+      <van-tag wx:if="{{order.order_status === '0'}}" class="tag" color="#165DFF" plain>已预约</van-tag>
+      <van-tag wx:if="{{order.order_status === '1'}}" class="tag" type="danger" plain>已取消</van-tag>
     </view>
 
   </view>

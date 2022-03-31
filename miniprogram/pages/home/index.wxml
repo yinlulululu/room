@@ -4,24 +4,24 @@
 		<view class="title" bindtap="navigateTo" data-url="/pages/addressList/index">
 			<text class="to_select">切换校区</text>
 			<van-icon name="arrow" />
-			<text class="total">（5家门店）</text>
+			<text class="total">（{{total}}家门店）</text>
 		</view>
 		<view class="container">
 			<view class="img">
-				<image class="img_item" src="cloud://yinlu-3bit0.7969-yinlu-3bit0-1302890904/room/home/1.png"></image>
-				<view class="start">开始预约
+				<image class="img_item" src="{{detail.img_src}}"></image>
+				<view class="start" bindtap="toOrder">开始预约
 					<van-icon name="arrow" />
 				</view>
 			</view>
 			<view class="msg">
-				<view class="name">农大新区</view>
+				<view class="name">{{detail.name}}</view>
 				<view class="time">
 					<text>营业时间</text>
-					<text>09:30 - 12:00</text>
+					<text>{{detail.time}}</text>
 				</view>
 				<view class="address">
-					<view>呼和浩特市玉泉区六中前街二建小区四号楼二单元五楼东户</view>
-					<view>导航
+					<view>{{detail.address}}</view>
+					<view bindtap="toMap">导航
 						<van-icon name="arrow" />
 					</view>
 				</view>

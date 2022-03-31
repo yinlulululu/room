@@ -9,19 +9,15 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   const wxContext = cloud.getWXContext()
   const openid = wxContext.OPENID
-  let orderid = ''
-  await db.collection('order_list').add({
+  let orderid = event.orderid
+  const res = await db.collection('order_list').doc(event.orderid).update({
     data: {
-      ...event,
-      order_status: '0'
+      order_status: '1'
     }
-  }).then(res => {
-    orderid = res._id
   })
 
-
-
   return {
+    res,
     orderid,
     openid: wxContext.OPENID,
     appid: wxContext.APPID,

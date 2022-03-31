@@ -21,25 +21,20 @@
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
-    "van-image": "@vant/weapp/image/index",
     "van-icon": "@vant/weapp/icon/index",
-    "van-row": "@vant/weapp/row/index",
-    "van-col": "@vant/weapp/col/index",
     "van-tab": "@vant/weapp/tab/index",
     "van-tabs": "@vant/weapp/tabs/index",
     "van-search": "@vant/weapp/search/index",
     "van-field": "@vant/weapp/field/index",
-    "van-dialog": "@vant/weapp/dialog/index",
     "van-cell": "@vant/weapp/cell/index",
     "van-collapse": "@vant/weapp/collapse/index",
     "van-collapse-item": "@vant/weapp/collapse-item/index",
-    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
     "van-calendar": "@vant/weapp/calendar/index",
     "van-action-sheet": "@vant/weapp/action-sheet/index",
     "van-grid": "@vant/weapp/grid/index",
     "van-grid-item": "@vant/weapp/grid-item/index",
-    "van-card": "@vant/weapp/card/index"
-
+    "van-card": "@vant/weapp/card/index",
+    "van-tag": "@vant/weapp/tag/index"
   },
   "tabBar": {
     "color": "#2c2c2c",

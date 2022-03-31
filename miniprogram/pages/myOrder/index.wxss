@@ -17,6 +17,7 @@
   border-radius: 15px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .img {
@@ -42,6 +43,12 @@
 .time {
   font-size: 13px;
   color: #ccc;
+}
+
+.tag {
+  position: absolute;
+  right: 10px;
+  top: 8px;
 }
 
 

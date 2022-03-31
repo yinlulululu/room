@@ -2,7 +2,7 @@
 <view class="find">
   <van-tabs type="card" color="#165DFF" swipeable>
     <van-tab title="预约日历">
-
+      <van-calendar title="预约日历" poppable="{{ false }}" color="#165DFF" show-confirm="{{ false }}" class="calendar" formatter="{{ formatter }}" />
     </van-tab>
     <van-tab title="学习报告">
 

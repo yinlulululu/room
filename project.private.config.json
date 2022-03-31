@@ -33,18 +33,18 @@
           "scene": null
         },
         {
-          "name": "自定义",
+          "name": "发现",
           "pathName": "pages/find/index",
           "query": "",
-          "launchMode": "default",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         },
         {
           "name": "我的订单",
           "pathName": "pages/myOrder/index",
           "query": "",
-          "scene": null,
-          "launchMode": "default"
+          "launchMode": "default",
+          "scene": null
         },
         {
           "name": "我的",
