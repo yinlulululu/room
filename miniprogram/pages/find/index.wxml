@@ -5,7 +5,10 @@
       <van-calendar title="预约日历" poppable="{{ false }}" color="#165DFF" show-confirm="{{ false }}" class="calendar" formatter="{{ formatter }}" />
     </van-tab>
     <van-tab title="学习报告">
+      <view class="container">
+        <ec-canvas id="mychart-dom-line" force-use-old-canvas="true" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
 
+      </view>
     </van-tab>
     <van-tab title="排行榜">
 

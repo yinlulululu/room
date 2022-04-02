@@ -23,4 +23,7 @@
     </view>
 
   </view>
+  <view class="none" wx:if="{{!myOrderList.length}}">
+    <image src="../searchs/images/none.png" style="width: 100%;height: 100%;"></image>
+  </view>
 </view>
