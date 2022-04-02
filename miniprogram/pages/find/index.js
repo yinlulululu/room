@@ -1,7 +1,96 @@
 // pages/find/index.js
 import * as echarts from '../../ec-canvas/echarts';
 
+function initLineChart(canvas, width, height, dpr) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height,
+    devicePixelRatio: dpr // new
+  });
+  canvas.setChart(chart);
 
+  var option = {
+    title: {
+      text: '预约日期曲线图',
+      left: 'center'
+    },
+    grid: {
+      containLabel: true,
+      left: 10
+    },
+    tooltip: {
+      show: true,
+      trigger: 'axis'
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: false,
+      data: ['博学楼自习室', '勤学楼自习室', '南教自习室', '生科楼自习室', '东主自习室'],
+      axisLabel: {
+        interval: 0
+      }
+      // show: false
+    },
+    yAxis: {
+      x: 'center',
+      type: 'category',
+      splitLine: {
+        lineStyle: {
+          type: 'dashed'
+        }
+      }
+      // show: false
+    },
+    series: [{
+      name: '预约日期',
+      type: 'line',
+      smooth: true,
+      data: ['1/22', '1/03', '12/21', '2/22', '07/s21']
+    }]
+  };
+  chart.setOption(option);
+  return chart;
+}
+
+function initPieChart(canvas, width, height, dpr) {
+  const chart = echarts.init(canvas, null, {
+    width: width,
+    height: height,
+    devicePixelRatio: dpr // new
+  });
+  canvas.setChart(chart);
+
+  var option = {
+    tooltip: {
+      trigger: 'item'
+    },
+    title: {
+      text: '预约状态饼图',
+      left: 'center'
+    },
+    backgroundColor: "#ffffff",
+    series: [{
+      label: {
+        normal: {
+          fontSize: 14
+        }
+      },
+      type: 'pie',
+      center: ['50%', '50%'],
+      radius: ['20%', '40%'],
+      data: [{
+        value: 55,
+        name: '已预约'
+      }, {
+        value: 20,
+        name: '已取消'
+      }]
+    }]
+  };
+
+  chart.setOption(option);
+  return chart;
+}
 Page({
 
   /**
@@ -10,8 +99,11 @@ Page({
   data: {
     orderList: [],
     formatter() {},
-    ec: {
-      lazyLoad: true, // 延迟加载
+    ec_line: {
+      onInit: initLineChart
+    },
+    ec_pie: {
+      onInit: initPieChart
     }
   },
 
@@ -42,96 +134,7 @@ Page({
         return day;
       }
     })
-
-    this.echartsComponnet = this.selectComponent('#mychart-dom-line');
-    this.getEchartsData(); //获取数据
-
   },
-
-  // 获取echats 
-  getEchartsData() {
-    this.initChart()
-  },
-
-  initChart() {
-    const that = this
-    this.echartsComponnet.init((canvas, width, height) => {
-      // 初始化图表
-      const Chart = echarts.init(canvas, null, {
-        width: width,
-        height: height
-      });
-      Chart.setOption(that.getOption())
-      // const chart = echarts.init(canvas, null, {
-      //   width: width,
-      //   height: height,
-      //   devicePixelRatio: dpr // new
-      // });
-      // canvas.setChart(chart);
-
-      // chart.setOption(option);
-      return Chart;
-    })
-  },
-
-  getOption() {
-    var option = {
-      title: {
-        text: '测试下面legend的红色区域不应被裁剪',
-        left: 'center'
-      },
-      legend: {
-        data: ['A', 'B', 'C'],
-        top: 50,
-        left: 'center',
-        backgroundColor: 'red',
-        z: 100
-      },
-      grid: {
-        containLabel: true
-      },
-      tooltip: {
-        show: true,
-        trigger: 'axis'
-      },
-      xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
-        // show: false
-      },
-      yAxis: {
-        x: 'center',
-        type: 'value',
-        splitLine: {
-          lineStyle: {
-            type: 'dashed'
-          }
-        }
-        // show: false
-      },
-      series: [{
-        name: 'A',
-        type: 'line',
-        smooth: true,
-        data: [18, 36, 65, 30, 78, 40, 33]
-      }, {
-        name: 'B',
-        type: 'line',
-        smooth: true,
-        data: [12, 50, 51, 35, 70, 30, 20]
-      }, {
-        name: 'C',
-        type: 'line',
-        smooth: true,
-        data: [10, 30, 31, 50, 40, 20, 10]
-      }]
-    }
-
-    return option;
-  },
-
-
 
   //获取数据
   getMyOrderList() {
