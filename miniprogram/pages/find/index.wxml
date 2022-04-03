@@ -10,8 +10,8 @@
         <ec-canvas style="width: 100%; height: 400px;" id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec_line }}"></ec-canvas>
       </view>
     </van-tab>
-    <van-tab title="排行榜" name="3">
+    <!-- <van-tab title="排行榜" name="3">
 
-    </van-tab>
+    </van-tab> -->
   </van-tabs>
 </view>
